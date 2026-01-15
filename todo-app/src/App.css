@@ -1,0 +1,290 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+
+  background: #faf0f0;
+  color: #000000;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1500px;
+}
+
+.app-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.section hr {
+  border: none;
+  border-top: 1px solid #999595;
+  margin-bottom: 15px;
+}
+.add-box {
+  max-width: 100%;
+  width: 400px;
+
+  position: relative;
+}
+
+.add-box input {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  width: 100%;
+}
+.add-box button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  height: calc(100% - 10px);
+  border-radius: 50px;
+}
+input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  outline: none;
+}
+
+input:focus {
+  border-color: #000000;
+}
+
+button,
+a.btn {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+button:hover,
+a.btn:hover {
+  opacity: 0.75;
+}
+
+.task-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px 24px;
+  border: 1px solid #dddddd;
+  width: 100%;
+  border-radius: 30px;
+  margin-top: 10px;
+}
+
+.task-text {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.task-actions button,
+.task-actions a {
+  background: transparent;
+  color: #000;
+  border: 1px solid #ddd;
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 6px;
+  transition: background 0.2s ease, border 0.2s ease;
+}
+
+.task-card.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.empty {
+  text-align: center;
+  color: #777777;
+  font-style: italic;
+}
+.Listcontainer {
+  margin-top: 50px;
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+  gap: 100px;
+}
+
+.section p {
+  text-align: center;
+}
+.section {
+  width: 100%;
+  max-width: 500px;
+}
+
+.top-sec {
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  width: 100%;
+}
+
+/* Edit page */
+/* EDIT PAGE */
+.edit-container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.edit-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.edit-input:focus {
+  border-color: #000;
+}
+
+.edit-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.save-btn {
+  background: #000;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.save-btn:hover {
+  opacity: 0.8;
+}
+
+.cancel-btn {
+  background: #f0f0f0;
+  color: #333;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background: #ddd;
+}
+
+/* Welcome Page */
+.welcome-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.welcome-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.welcome-btn {
+  background: #000;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.account-bar {
+  position: absolute; /* place it in top right */
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.account-icon {
+  font-size: 20px; /* simple user icon */
+}
+
+.logout-btn {
+  background: #f44336; /* red logout button */
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #d32f2f;
+}
