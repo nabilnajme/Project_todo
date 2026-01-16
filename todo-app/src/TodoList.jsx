@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useState , useEffect, useRef} from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+
 
 export default function TodoHome() {
   const location = useLocation();
@@ -11,9 +12,12 @@ export default function TodoHome() {
   const todos = useSelector((state) => state);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const inputRef = useRef(null);
   const [text, setText] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-
+ useEffect(() => {
+    inputRef.current.focus();
+  }, []);
   function addTodo() {
     if (text.trim() === "") return;
 
@@ -46,14 +50,15 @@ export default function TodoHome() {
       </div>
 
       <div className="container">
-        <h1 className="app-title">Welcome, {userName} 😁🚀🚁</h1>
+        <h1 className="app-title">Welcome, {userName}💕 </h1>
       </div>
-      <h1 className="app-title">Task Manager</h1>
+      <h1 className="app-title">Task Manager  🐲</h1>
 
       {/* ADD */}
       <section className="top-sec">
         <div className="add-box">
           <input
+          ref={inputRef}
             type="text"
             placeholder="What do you need to do?"
             value={text}
