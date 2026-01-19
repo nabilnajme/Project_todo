@@ -11,10 +11,10 @@ export default function EditTodo() {
   const navigate = useNavigate();
 
   const todo = todos.find((t) => t.id == id);
-  const [text, setText] = useState(todo ? todo.text : "");
+  const [text, setText] = useState(todo.text);
 
   function save() {
-    dispatch({ type: "edit", payload: { id: todo.id, text } });
+    dispatch({ type: "edit", payload: { id: todo.id, text: text } });
     navigate("/home");
   }
 
