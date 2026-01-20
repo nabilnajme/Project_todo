@@ -116,7 +116,9 @@ a.btn:hover {
   padding: 5px 12px;
   font-size: 12px;
   border-radius: 6px;
-  transition: background 0.2s ease, border 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border 0.2s ease;
 }
 
 .task-card.completed .task-text {
@@ -161,7 +163,7 @@ a.btn:hover {
 }
 
 /* Edit page */
-/* EDIT PAGE */
+/*==================================== EDIT PAGE =======================================*/
 .edit-container {
   max-width: 500px;
   margin: 80px auto;
@@ -228,7 +230,7 @@ a.btn:hover {
   background: #ddd;
 }
 
-/* Welcome Page */
+/*================================= Welcome Page ============================================*/
 .welcome-container {
   max-width: 400px;
   margin: 100px auto;
@@ -253,7 +255,7 @@ a.btn:hover {
   margin-bottom: 15px;
   font-size: 14px;
 }
-.welcome-text{
+.welcome-text {
   font-size: 14px;
   margin-bottom: 15px;
   font-style: italic;
