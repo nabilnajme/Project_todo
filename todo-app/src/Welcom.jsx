@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {  useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 
 import "./App.css";
 
@@ -36,7 +36,12 @@ export default function Welcom() {
         <button type="submit" className="btn welcome-btn">
           Enter
         </button>
-        <p className="welcome-text" onClick={() => navigate("/home", { state: { userName: "Guest" } })}>Enter As Guest</p>
+        <p
+          className="welcome-text"
+          onClick={() => navigate("/home", { state: { userName: "Guest" } })}
+        >
+          Enter As Guest
+        </p>
       </form>
     </div>
   );

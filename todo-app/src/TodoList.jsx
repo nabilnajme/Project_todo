@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 export default function TodoHome() {
   const location = useLocation();
   const userName = location.state.userName;
+  // const userName = location.state?.userName || "Guest";
 
   const todos = useSelector((state) => state);
   const navigate = useNavigate();
@@ -49,9 +50,8 @@ export default function TodoHome() {
         </button>
       </div>
 
-      <div className="container">
-        <h1 className="app-title">Welcome, {userName}💕 </h1>
-      </div>
+      <h1 className="app-title">Welcome, {userName}💕 </h1>
+
       <h1 className="app-title">Task Manager 🐲</h1>
 
       {/*============================================== ADD =============================*/}
@@ -81,33 +81,37 @@ export default function TodoHome() {
       </section>
 
       <div className="Listcontainer">
-        {/* IN PROGRESS */}
+        {/*=================================== IN PROGRESS ==========================================*/}
         <section className="section">
           <h2 className="section-title">In Progress</h2>
           <hr />
           {total1 === 0 && <p className="empty">No tasks in progress</p>}
-          {inProgress.map((t) => (
-            <div key={t.id} className={`task-card `}>
-              <p className="task-text">{t.text}</p>
+          {inProgress.map((elem) => (
+            <div key={elem.id} className={`task-card `}>
+              <p className="task-text">{elem.text}</p>
 
               <div className="task-actions">
                 <button
                   className="btn done-btn"
                   onClick={() =>
-                    dispatch({ type: "toggle", payload: { id: t.id } })
+                    dispatch({ type: "toggle", payload: { id: elem.id } })
                   }
                 >
                   Done
                 </button>
 
-                <Link to={`/edit/${t.id}`} className="btn edit-btn">
+                <Link
+                  to={`/edit/${elem.id}`}
+                  state={{ userName }}
+                  className="btn edit-btn"
+                >
                   Edit
                 </Link>
 
                 <button
                   className="btn delete-btn"
                   onClick={() =>
-                    dispatch({ type: "delete", payload: { id: t.id } })
+                    dispatch({ type: "delete", payload: { id: elem.id } })
                   }
                 >
                   Delete
@@ -118,7 +122,7 @@ export default function TodoHome() {
           <p className="empty">{total1} tasks in progress</p>
         </section>
 
-        {/* COMPLETED */}
+        {/*=========================================== COMPLETED =================================*/}
         <section className="section">
           <h2 className="section-title">Completed</h2>
           <hr />
@@ -144,7 +148,7 @@ export default function TodoHome() {
                 <button
                   className="btn delete-btn"
                   onClick={() =>
-                    dispatch({ type: "delete", payload: { id: t.id } })
+                    dispatch({ type: "delete", payload: { id: elem.id } })
                   }
                 >
                   Delete
@@ -152,6 +156,7 @@ export default function TodoHome() {
               </div>
             </div>
           ))}
+
           <p className="empty">{total2} tasks completed</p>
         </section>
       </div>
@@ -164,25 +169,29 @@ export default function TodoHome() {
           {inProgresssearch.length === 0 && (
             <p className="empty">No matching tasks</p>
           )}
-          {inProgresssearch.map((t) => (
-            <div key={t.id} className="task-card">
-              <p className="task-text">{t.text}</p>
+          {inProgresssearch.map((elem) => (
+            <div key={elem.id} className="task-card">
+              <p className="task-text">{elem.text}</p>
               <div className="task-actions">
                 <button
                   className="btn done-btn"
                   onClick={() =>
-                    dispatch({ type: "toggle", payload: { id: t.id } })
+                    dispatch({ type: "toggle", payload: { id: elem.id } })
                   }
                 >
                   Done
                 </button>
-                <Link to={`/edit/${t.id}`} className="btn edit-btn">
+                <Link
+                  to={`/edit/${elem.id}`}
+                  state={{ userName }}
+                  className="btn edit-btn"
+                >
                   Edit
                 </Link>
                 <button
                   className="btn delete-btn"
                   onClick={() =>
-                    dispatch({ type: "delete", payload: { id: t.id } })
+                    dispatch({ type: "delete", payload: { id: elem.id } })
                   }
                 >
                   Delete

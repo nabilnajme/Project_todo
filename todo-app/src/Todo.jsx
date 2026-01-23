@@ -13,14 +13,14 @@ export default function Todo(state = [], action) {
       return state.map((elem) =>
         elem.id == action.payload.id
           ? { ...elem, text: action.payload.text }
-          : elem
+          : elem,
       );
 
     case "toggle":
       return state.map((elem) =>
         elem.id == action.payload.id
           ? { ...elem, completed: !elem.completed }
-          : elem
+          : elem,
       );
 
     default:

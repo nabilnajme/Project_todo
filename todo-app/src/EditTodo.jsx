@@ -1,21 +1,24 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import "./App.css";
 import { useState } from "react";
 
 export default function EditTodo() {
+  const location = useLocation();
+  const userName = location.state.userName;
+
   const { id } = useParams();
   const todos = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const todo = todos.find((t) => t.id == id);
+  const todo = todos.find((elem) => elem.id == id);
   const [text, setText] = useState(todo.text);
 
   function save() {
     dispatch({ type: "edit", payload: { id: todo.id, text: text } });
-    navigate("/home");
+    navigate("/home", { state: { userName } });
   }
 
   return (
@@ -31,7 +34,10 @@ export default function EditTodo() {
         <button className="btn save-btn" onClick={save}>
           Save
         </button>
-        <button className="btn cancel-btn" onClick={() => navigate("/home")}>
+        <button
+          className="btn cancel-btn"
+          onClick={() => navigate("/home", { state: { userName } })}
+        >
           Cancel
         </button>
       </div>
